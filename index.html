@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- jQuery ui-->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMxp2G5hvKXNz3SgucMeB_NRulrjJH45o&callback=initMap">
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+    <title>NYU easy residence!</title>
+</head>
+<body>
+    <!-- Nav bar div -->
+    <div class="container">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" id="navbar">
+            <a class="navbar-brand" href="#">NYU easy Residence</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#maps">Maps</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#charts">Charts</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+
+                </span>
+            </div>
+        </nav>
+    </div>
+    <div class="container" id="home">
+        <div class="jumbotron purple-bg">
+            <h1>Hello!</h1>
+            <p>This is NYU easy Residence</p>
+        </div>
+        <div class="row">
+            <div class="col justify-content-center">
+                <h1>Welcome</h1>
+                <hr>
+                <p>Here you can find residence options near NYU</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="maps">
+        <h1>Map</h1>
+        <div class="jumbotron purple-bg" id="mapOptions">
+            <div class="row justify-content-center" id="boroughCheckboxes">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    <label class="form-check-label" for="inlineCheckbox1">Manhattan</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox2">Bronx</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                    <label class="form-check-label" for="inlineCheckbox3">Brooklyn</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+                    <label class="form-check-label" for="inlineCheckbox4">Queens</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option4">
+                    <label class="form-check-label" for="inlineCheckbox5">Staten Island</label>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <button id="addBoroughsCheckBoxes">Graph the borders!</button>
+            </div>
+            <input type="text" class="form-control blue-bg" id="boroughNo" placeholder="Borough Number">
+            <input type="text" class="form-control blue-bg" id="districtNo" placeholder="District Number">
+            <div class="row justify-content-center">
+                <button id="getNYDistrictShape">Get NY District shape</button>
+                <button id="getNYBoroughShape">Get NY Borough Districts Shape</button>
+                <button id="clearBorders">Clear</button>
+            </div>
+            <p>Tip: use numbers 1 through 5 for Borough Number and numbers 1 through 71 for District Number</p>
+        </div>
+        <div class="jumbotron" id="map"></div>
+        <div class="jumbotron">
+            <p> There are 71 districst in New York City, but only 59 of them are habitable! (12 of them are green areas), nonetheless you can see here all of them</p>
+            <p> The districts are classified into Boroughs and also contain several Neighborhoods!</p>
+            <p> Also.. The little red marker is NYU!</p>
+        </div>
+    </div>
+
+    <div class="container" id="charts">
+        <h1>Charts</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-auto">
+                <button id="getData">See Neighborhoods!</button>
+                <table>
+                    <caption>Neighborhood Names NY</caption>
+                    <tr>
+                        <th>id</th>
+                        <th>lat</th>
+                        <th>long</th>
+                        <th>name</th>
+                        <th>borough</th>
+                    </tr>
+                    <tbody id="tBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="jumbotron">
+            <p>Here you find the list of all the Neighborhoods in NY, along with their name centroid coordinates (geografical center) and the borough that they are part of.</p>
+        </div>
+    </div>
+</body>
+</html>

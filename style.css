@@ -1,0 +1,57 @@
+body {
+    color: #444;
+    font-family: Arial, sans-serif;
+    padding-top: 60px;
+    background-color: grey;
+}
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    margin-top: 5px;
+}
+
+.jumbotron{
+    margin: 5px;
+}
+
+#navbar{
+    color: White;
+}
+
+#map{
+  height: 300px;
+  width: 100%;
+}
+
+.form-control{
+    color: #9090A5;
+    border-width: 2px 0px 3px 0px;
+    border-style: solid;
+    border-color: #9090A5;
+    margin-top: 3px;
+}
+
+button {
+    background-color: #F61067;
+    border: solid #F61067;
+    margin: 2px;
+    color:white;
+}
+
+.purple-bg{
+    background-color: #13124F;
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+.blue-bg{
+    background-color: #352BA5;
+    color:white;
+}
+
+.green-bg{
+    background-color: #2AD392;
+}
